@@ -6,8 +6,8 @@ CREATE TABLE feed_follows(
    user_id uuid not null,
    feed_id uuid not null,
    unique(user_id, feed_id),
-   constraint fk_user_id foreign key (user_id) references users(id),
-   constraint fk_feed_id foreign key (feed_id) references feeds(id)
+   constraint fk_user_id foreign key (user_id) references users(id) on delete cascade,
+   constraint fk_feed_id foreign key (feed_id) references feeds(id) on delete cascade
 );
 
 -- +goose Down
