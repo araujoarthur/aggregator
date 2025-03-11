@@ -12,11 +12,7 @@ func handleListFeeds(s *state, cmd command) error {
 	}
 
 	for _, feed := range feeds {
-		if feed.Name == s.Config.CurrentUserName {
-			fmt.Printf("* %s (current)\n", feed.Name)
-			continue
-		}
-		fmt.Printf("* %s \n", feed.Name)
+		fmt.Printf("* %s [%s]: %s\n", feed.Feed.Name, feed.User.Name, feed.Feed.Url.String)
 	}
 
 	return nil
